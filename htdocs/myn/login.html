@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+
+        body {
+    background-image: url('login img.jpg');
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    margin: 0 5%;
+    
+}
+
+.col-2{
+    color:red;
+    background-color: #fff;
+}
+
+nav {
+    
+    height: 20vh;
+}
+.nav-link {
+    text-decoration: none;
+    color: aliceblue;
+    font-size: 25px;
+}
+nav .nav-menu-icon{
+    display: none;
+}
+nav .nav-items{
+    flex: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style-type: none;
+    margin-top:20px;
+}
+
+.nav-button{
+    display: flex;
+    flex: auto;
+    background-color: #E8BD0D;
+    border: none;
+    padding: 5px 40px;
+    border-radius: 30px;
+    cursor: pointer;
+}
+.nav-button {
+    background-color:#fff ;
+    border: 2px solid #6AC47E;
+    border-radius: 0.6em;
+    color:red;
+    font-style: 1rem;
+    font-size: 1rem;
+    font-weight: 400;
+    padding: 1.2em 2.5em;
+    cursor: grab;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: "Montserrat";
+    font-weight: 900;
+
+}
+
+.nav-button:hover{
+    color:black;
+    outline: 0;
+}
+.nav-button{
+    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+}
+
+.nav-button:hover{
+    box-shadow: 0 0 40px 40px #1FAA59 ;
+}
+.nav-button{
+    width:100%;
+    position: left;
+}
+.form-items{
+        text-align:left;
+        color: #fff;
+        font-size: 40px;
+        font-style:oblique;
+
+}
+.login-button{      
+    display: flex;
+    flex: auto;
+    background-color: #E8BD0D;
+    border: none;
+    padding: 5px 40px;
+    border-radius: 30px;
+    cursor: pointer;
+    
+    background-color:#fff ;
+    border: 2px solid #6AC47E;
+    border-radius: 0.6em;
+    color:red;
+    font-style: 1rem;
+    font-size: 1rem;
+    font-weight: 400;
+    padding: 1.2em 2.5em;
+    cursor: grab;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: "Montserrat";
+    font-weight: 900;
+    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+    position: left;
+
+}
+
+.login-button:hover{
+    color:black;
+    outline: 0;
+    box-shadow: 0 0 40px 40px #1FAA59 ;
+}
+.login{
+   font-style:oblique;
+   font-size:50px;
+   color:#fff;
+   text-align:left;
+}
+    </style>
+</head>
+<body>
+    
+    <nav>
+        <ul class="nav-items">
+            <li class="nav-items"><a href="h1.html" target="_self" class="nav-link"><button class="nav-button">Home</button></a></li>
+            <li class="nav-items"><a href="menu.html" target="_self"  class="nav-link"><button class="nav-button">Menu</Menu></button></a></li>
+            <li class="nav-items"><a href="about us.html" target="_self" class="nav-link"><button class="nav-button">About Us</button></a></li>
+            <li class="nav-items"><a href="contact us.html" target="_self" class="nav-link"><button class="nav-button">Contact Us</button></a></li>
+            <li class="nav-items"><a href="register.html" target="_self" class="nav-link"><button class="nav-button">Register</button></a>
+            <li class="nav-items"><a href="login.html" target="_self" class="nav-link"><button class="nav-button">Login</button></a>
+
+            </li>
+        </ul>
+    </nav>
+<br>
+    <center>
+        <p class="login">Login For Exicting Deals</p>
+        <form class="form-items">
+        email:
+        <input type=email >
+        <br><br>
+        password:
+        <input type=password><br>
+        <br>
+        <button class="login-button">login</button>
+        </form>
+    </center>
+</body>
+</html>

@@ -1,0 +1,290 @@
+#!C:\Program Files\Python38/python.exe
+print("Content-Type:text/html\n")
+
+import sys
+sys.path.append('c:\\users\\manogna\\appdata\\roaming\\python\\python38\\site-packages')
+import cgi, cgitb
+import pymysql
+cgitb.enable()
+mydb=pymysql.connect(user='root',password='',host='localhost',database='nsha')
+mycursor=mydb.cursor()
+form=cgi.FieldStorage()
+mycursor.execute("select * from table2")
+result=mycursor.fetchall()
+maillist=[]
+for row in result:
+    maillist.append(row[2])
+gmail = form.getvalue('email')
+password = form.getvalue('password')
+if gmail in maillist:
+    i=maillist.index(gmail)
+    row=result[i]
+    if (row[3]==password):
+        print('''<!DOCTYPE html>
+<html>
+<head>
+<style>
+th{
+    text-align:left;
+    
+
+}
+
+body{
+font-size: 20pt;
+background-image:url('ord bg img.jpg');
+background-attachment:fixed;
+background-size:cover;
+}
+
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
+
+  div {
+    text-align: center;
+    border-style: solid;
+    margin-left: 300px;
+    width:60%
+}
+#alignment{
+    margin-left: auto;
+    margin-right: auto;
+
+}
+.m1{
+	font-size:20px;
+	text-align:center;
+}
+</style>
+</head><body>
+<h2>Place Order !</h2>
+<h2>Enjoy Delicious Food !</h2>
+<table width="40%" id="alignment" > 
+<tr>  
+<th>Food Item</th> 
+<th></th>
+<th>Price(Rs.)</th>
+</tr> 
+<tr>
+<td>Burger</td> 
+<td> - </td>
+<td>150/-</td> 
+</tr> 
+<tr>
+<td>French Fries</td>
+<td> - </td> 
+<td>100/-</td> 
+</tr>
+<tr> 
+<td>Pasta</td>
+<td> - </td>  
+<td>120/-</td>
+</tr> 
+<tr>  
+<td>Chicken Biryani</td>
+<td> - </td> 
+<td>300/-</td> 
+</tr>  
+<tr>
+<td>Noodles</td>
+<td> - </td> 
+<td>100/-</td>
+</tr>
+<tr>
+<td>Manchuria</td>
+<td> - </td> 
+<td>80/-</td>
+</tr>
+<tr>
+<td>Milk Shake</td>
+<td> - </td> 
+<td>120/-</td>
+</tr>
+<tr>
+<td>Cool Cake</td>
+<td> - </td> 
+<td>80/-</td>
+</tr>
+<tr>
+<td>Noodles</td>
+<td> - </td> 
+<td>100/-</td>
+</tr>
+<tr>
+<td>Ice Cream</td>
+<td> - </td> 
+<td>90/-</td>
+</tr>
+</table>
+<form name="tblform" action="insertdborder.py" method=POST >
+
+<h4>name:<input type="text" class="m1" name="n"></h4>
+<h4>address:<input type="text" class="m1" name="a"></h4>
+<table width="80%"  id="alignment" >
+<tr>
+<th>Food Item</th>
+<th> </th>
+<th>Quantity</th>
+<th>Price</th> 
+</tr>
+<tr> 
+<td>item1:</td> 
+<td>
+<select id="item1" name="i1">
+<option value="1">--Select Item--</option>
+        <option value="Burger">Burger </option>
+        <option value="Frenchfries">Frenchfries</option>
+        <option value="Pasta">Pasta</option>
+        <option value="Chicken Biryani">Chicken Biryani</option>
+        <option value="Manchuria">Manchuria</option>
+        <option value="Noodles ">Noodles </option>
+        <option value="Milkshake ">Milkshake </option>
+        <option value="Cool Cake ">Cool Cake </option>
+        <option value="Icecream">Icecream </option>
+</select>
+</td> 
+<td>quantity1<input type="text" name="q1" value="0" id="q1"></td>
+<td>price1<input type="text" name="p1" id="p1"></td>
+</tr>   
+<tr>
+<td>item2:</td>
+<td>
+<select id="item2" name="i2"> 
+<option value="1" >--Select Item--</option>
+        <option value="Burger">Burger </option>
+        <option value="Frenchfries">Frenchfries</option>
+        <option value="Pasta">Pasta</option>
+        <option value="Chicken Biryani">Chicken Biryani</option>
+        <option value="Manchuria">Manchuria</option>
+        <option value="Noodles ">Noodles </option>
+        <option value="Milkshake ">Milkshake </option>
+        <option value="Cool Cake ">Cool Cake </option>
+        <option value="Icecream">Icecream </option>  
+</select>
+</td>
+<td>quantity2<input  type="text" name="q2" value="0" id="q2"></td>  
+<td>price2<input type="text" name="p2" id="p2"></td>  
+</tr> 
+<tr>
+<td>item3:</td>
+<td><select id="item3" name="i3">  
+<option value="1" >--Select Item--</option>
+        <option value="Burger">Burger </option>
+        <option value="Frenchfries">Frenchfries</option>
+        <option value="Pasta">Pasta</option>
+        <option value="Chicken Biryani">Chicken Biryani</option>
+        <option value="Manchuria">Manchuria</option>
+        <option value="Noodles ">Noodles </option>
+        <option value="Milkshake ">Milkshake </option>
+        <option value="Cool Cake ">Cool Cake </option>
+        <option value="Icecream">Icecream </option> 
+</select>
+</td>
+<td>quantity3<input type="text" value="0" name="q3" id="q3"></td>
+<td>price3<input type="text" name="p3"  id="p3"></td> 
+</tr> 
+<tr>
+<td></td>
+<td></td>
+
+<td><input type="submit" class="button" value="Create Bill" onclick=createBill()></td>
+<td><input type="reset" class="button" value="Clear"></td>
+</tr>
+</table>
+</form>
+<script>
+function createBill(){
+var index=0;
+var items = ["null", "null", "null"];
+var quantities = ["null", "null", "null"];
+var prices = ["null", "null", "null"];
+						
+						
+						
+var e1 = document.getElementById("item1");
+var itemselected1 = e1.options[e1.selectedIndex].value;
+if(itemselected1!="1"){
+items[index]=itemselected1;
+quantities[index] = document.getElementById("q1").value;
+prices[index] = document.getElementById("p1").value;
+index++;
+}
+			
+
+var e2 = document.getElementById("item2");
+var itemselected2 = e2.options[e2.selectedIndex].value;
+if(itemselected2!="1"){
+items[index]=itemselected2;
+quantities[index] = document.getElementById("q2").value;
+prices[index] = document.getElementById("p2").value;
+index++;
+}
+
+var e3 = document.getElementById("item3");
+var itemselected3 = e3.options[e3.selectedIndex].value;
+if(itemselected3!="1"){
+items[index]=itemselected3;
+quantities[index] = document.getElementById("q3").value;
+prices[index] = document.getElementById("p3").value;
+index++;
+}
+
+
+
+var fTot=0;
+strt(1);
+for(var i=0;i<index;i++){
+document.write("<tr>");
+createtbl(items[i]);
+createtbl(quantities[i]);
+createtbl(prices[i]);
+var tot=parseInt(quantities[i])*parseInt(prices[i]);
+document.write("<td>"+tot+"</td>");
+fTot+=tot;
+document.write("</tr>");
+}
+document.write("<tr><td colspan=\"3\"><strong>TOTAL</strong></td><td>"+fTot+"</td><tr>");
+strt(2);	
+}
+function createtbl(x){		
+document.write("<td>"+x+"</td>");
+}
+
+function strt(n){
+if(n==1){
+document.writeln("<h1 style=\"text-align:center;\">The Bill</h1>");
+document.writeln("<table width=\"90%\" border=\"1\">");
+document.writeln("<tr><th>ITEMS</th><th>QUANTITY</th><th>PRICE</th><th></th></tr>");
+}
+	else
+	document.write("</table>");
+}
+
+function createTot(x,y){
+var tot=parseInt(x)*parseInt(y);
+document.write("<td>"+tot+"</td>");
+}</script>
+</body>
+</html>''')
+        
+    else:
+        print("please check you user and password")
+      
+         
+else:
+    print("user does not exist")
+    
+
+
+
+
+
+
